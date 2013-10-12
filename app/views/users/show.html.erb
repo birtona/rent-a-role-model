@@ -1,2 +1,21 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+<div class="container col-md-12">
+  <h1 class="text-center">
+    <%= @user.name  %>
+        </h1>
+  <div class="row">
+    <div class="col-md-3">
+      <%= image_tag(@user.image_url) %>
+    </div>
+    <div class="col-md-6">
+      <%= @user.job  %>
+      <br>
+      <%= @user.city  %>
+      <br>
+      <%= @user.email  %>
+
+
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+</div>
