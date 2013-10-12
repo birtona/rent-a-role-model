@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    @users = User.order('name ASC').all
   end
 
   def show
