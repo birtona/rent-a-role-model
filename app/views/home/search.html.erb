@@ -7,13 +7,13 @@
 
     <div class="col-md-5 col-sm-6 col-xs-12 padded-bottom">
       
-      <button class='btn btn-primary btn-block'>Roles Models in Berlin</button>
+      <%=  link_to "Role Models in Berlin", users_path(city: "Berlin"), class: 'btn btn-primary btn-block'  %>
     </div>
 
 
     <div class="col-md-5 col-sm-6 col-xs-12 padded-bottom">
  
-      <%=  link_to "Role Models in Hamburg", home_role_model_path, class: 'btn btn-primary btn-block'  %>
+      <%=  link_to "Role Models in Hamburg", users_path(city: "Hamburg"), class: 'btn btn-primary btn-block'  %>
     </div>
 
     <div class="col-md-1 col-sm-0 col-xs-0">
