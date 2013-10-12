@@ -1,3 +1,3 @@
-class Authentication < ActiveRecord::Base
-has_many :authentications
+class User < ActiveRecord::Base
+
 end
