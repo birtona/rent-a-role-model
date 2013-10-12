@@ -15,7 +15,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.order('name ASC').all
+    @city = params['city']
+
+    if @city.present?
+      @users = User.order('name ASC').all(:conditions => { :city => @city })
+    else
+      @users = User.order('name ASC').all
+    end
   end
 
   def show
