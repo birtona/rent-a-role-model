@@ -5,6 +5,7 @@ RentARoleModel::Application.routes.draw do
   get "home/role_model"
   get "home/thanks"
   get "home/search"
+  get "home/already"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

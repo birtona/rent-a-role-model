@@ -27,10 +27,12 @@ class OauthController < ApplicationController
     new_user = User.new(name: name, city: city, email: email, image_url: image_url, job: job)
 
     if new_user.save
-      render :text => "WIN"
+      redirect_to home_thanks_path
     else
-      render :text => "FAILBOAT"
+      redirect_to home_already_path
     end
+
+
   end
 
   private

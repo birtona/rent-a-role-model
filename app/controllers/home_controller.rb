@@ -10,5 +10,7 @@ class HomeController < ApplicationController
 
   def thanks
   end
-  
+
+  def already
+  end  
 end
