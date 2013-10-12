@@ -1,4 +1,5 @@
 RentARoleModel::Application.routes.draw do
+
   get "home/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -54,4 +55,8 @@ RentARoleModel::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  get 'sign_up' => 'oauth#sign_up'
+  get 'callback' => "oauth#callback"
+
 end
