@@ -14,8 +14,10 @@ class OauthController < ApplicationController
     request_token = OAuth::RequestToken.new(@consumer, session[:token], session[:secret])
     access_token = request_token.get_access_token(:oauth_verifier => params[:oauth_verifier]) 
 
-    result = access_token.request(:get, "https://api.xing.com/v1/users/me?fields=id,display_name,gender")
-    render :json => JSON.parse(result.body)
+    result = access_token.request(:get, "https://api.xing.com/v1/users/me")
+    user = JSON.parse(result.body)
+    user = user["users"].first
+    render :json => user
   end
 
   private
