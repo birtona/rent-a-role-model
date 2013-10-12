@@ -1,2 +1,12 @@
-<h1>User#index</h1>
-<p>Find me in app/views/user/index.html.erb</p>
+<div class="container user-index">
+  <h1 class="text-center">Role Models</h1>
+  <% @users.each do |user| %>
+    <div class="role-model pull-left clearfix col-md-2">
+      <%= link_to user_path(user) do %>
+        <%= image_tag(user.image_url, class: "profile") %>
+        <%= content_tag :p, user.name %>
+        <%= content_tag :p, user.job %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
