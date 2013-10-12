@@ -17,7 +17,20 @@ class OauthController < ApplicationController
     result = access_token.request(:get, "https://api.xing.com/v1/users/me")
     user = JSON.parse(result.body)
     user = user["users"].first
-    render :json => user
+
+    name = user['display_name']
+    city = user['private_address']['city'] || user['business_address']['city']
+    email = user['active_email']
+    image_url = user['photo_urls']['large']
+    job = user['professional_experience']['primary_company']['title']
+
+    new_user = User.new(name: name, city: city, email: email, image_url: image_url, job: job)
+
+    if new_user.save
+      render :text => "WIN"
+    else
+      render :text => "FAILBOAT"
+    end
   end
 
   private
