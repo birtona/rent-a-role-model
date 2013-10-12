@@ -27,6 +27,9 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.14)
+    bootstrap-sass-rails (3.0.0.3)
+      railties (>= 3.1.0)
+      sass-rails (>= 3.1.0)
     builder (3.1.4)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -52,6 +55,7 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.1)
+    oauth (0.4.7)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -108,9 +112,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass-rails
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
+  oauth
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc
