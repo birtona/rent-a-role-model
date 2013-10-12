@@ -1,5 +1,12 @@
 RentARoleModel::Application.routes.draw do
 
+  get "user/new"
+  get "user/create"
+  get "user/update"
+  get "user/destroy"
+  get "user/edit"
+  get "user/index"
+  get "user/show"
   get "home/index"
   get "home/role_model"
   # The priority is based upon order of creation: first created -> highest priority.
