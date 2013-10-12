@@ -23,7 +23,7 @@ class OauthController < ApplicationController
   private
 
   def set_consumer
-    @consumer = OAuth::Consumer.new("4bc912de1d6c2995f20b", "76d85467acc63938c18008140c98e27b60bf6d3d", {
+    @consumer = OAuth::Consumer.new("1b2197c12ae0e71d54a4", "afac7a8b9bc59b448d744cfbf3ac24e460749fcd", {
       :site => "https://api.xing.com",
       :request_token_path => "/v1/request_token",
       :authorize_path => "/v1/authorize",
