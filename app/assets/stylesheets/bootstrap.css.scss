@@ -1,4 +1,6 @@
+$brand-primary: #1a7576; // same as Xing color
 $grid-gutter-width: 80px;
+$link-color: lighten($brand-primary, 15%);
 
 @import "twitter/bootstrap";
 
