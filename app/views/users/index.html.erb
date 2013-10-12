@@ -5,8 +5,9 @@
       <%= link_to user_path(user) do %>
         <%= image_tag(user.image_url, class: "profile") %>
         <%= content_tag :p, user.name %>
-        <%= content_tag :p, user.job %>
       <% end %>
+
+      <%= content_tag :p, user.job %>
     </div>
   <% end %>
 </div>
