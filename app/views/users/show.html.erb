@@ -3,10 +3,10 @@
     <%= @user.name  %>
         </h1>
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-3 col-xs-12">
       <%= image_tag(@user.image_url, class: "profile") %>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-6 col-xs-12">
       <p class="profile" > <%= @user.job %>
       <br>
         <%= @user.city %> </p>
@@ -20,7 +20,7 @@
         <span class="sglyphicon glyphicon-envelope"> Per E-Mail anschreiben</span>
       <% end %>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-0 col-xs-0">
     </div>
   </div>
 </div>
