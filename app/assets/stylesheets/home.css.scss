@@ -40,8 +40,20 @@ a.btn {
 }
 
 #foot-nav {
+  margin-top: 3em;
+
   min-height: 0;
   a {
     padding: 0.5em 1em 0.5em 0;
   }
+}
+
+.outline {
+  outline: 2px solid rgba(0,0,0,0.2);
+  outline-offset: -2px;
+  margin-bottom: 0.5em;
+}
+
+#content-body {
+  padding: 3.5em 0 5em 0;
 }
