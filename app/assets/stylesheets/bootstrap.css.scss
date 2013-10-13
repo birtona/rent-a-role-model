@@ -4,3 +4,27 @@ $link-color: lighten($brand-primary, 15%);
 
 @import "twitter/bootstrap";
 
+.justified {
+  height: auto;
+}
+
+/* tablets or larger (768px and up) */
+@media (min-width: $screen-sm) {
+  .justified {
+    height: 220px;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md) {
+  .justified {
+    height: 175px;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen-lg) {
+  .justified {
+    height: 125px;
+  }
+}
