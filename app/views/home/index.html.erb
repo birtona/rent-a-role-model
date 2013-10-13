@@ -2,28 +2,30 @@
   <h1 class="text-center">Rent a Role Model</h1>
 
   <div class="row">
-    <div class="col-md-1 col-sm-0 col-xs-0">
-    </div>
+    <%# <div class="col-md-1 col-sm-0 col-xs-0"> %>
+    <%# </div> %>
 
-    <div class="col-md-3 col-sm-6 col-xs-12 padded-bottom">
-      <p>
+    <div class="col-md-4 col-sm-4 col-xs-12 padded-bottom">
+      <p class="justified">
         Du unterrichtest in der Oberstufe und suchst nach Frauen in Tech-Berufen als Vorbild für deine Schülerinnen? Mit „Rent a Role Model” kannst du nach Frauen in deiner Stadt suchen, die Schülerinnen bei der Berufsorientierung unterstützen möchten.
       </p>
       <%=  link_to "Ich suche ein Role Model", home_search_path, class: 'btn btn-primary btn-block'  %>
 
     </div>
 
-    <div class="col-md-4 col-sm-6 col-xs-12 padded-bottom">
+    <div class="col-md-4 col-sm-4 col-xs-12 padded-bottom">
         <%= image_tag("picture_landingpage.png", :width => '100%') %>
     </div>
-    <div class="col-md-3 col-sm-6 col-xs-12 padded-bottom">
-      <p>
+
+    <div class="col-md-4 col-sm-4 col-xs-12 padded-bottom">
+      <p class="justified">
         Du bist eine Frau aus der Tech-Branche und möchtest Schülerinnen motivieren, in einem IT-Beruf zu arbeiten? Dann melde dich bei „Rent a Role Model” an, damit LehrerInnen dich finden und für Berufsorientierungstage anfragen können.
       </p>
       <%=  link_to "Ich bin ein Role Model", home_role_model_path, class: 'btn btn-primary btn-block'  %>
     </div>
-    <div class="col-md-1 col-sm-0 col-xs-0">
-    </div>
+
+    <%# <div class="col-md-1 col-sm-0 col-xs-0"> %>
+    <%# </div> %>
   </div>
 
   <div class="row">
