@@ -7,13 +7,18 @@
       <%= image_tag(@user.image_url, class: "profile") %>
     </div>
     <div class="col-md-6">
-      <%= @user.job  %>
+      <p><strong> <%= @user.job %> </strong>
+      <br><br>
+      <strong><%= @user.city %> </p></strong>
       <br>
-      <%= @user.city  %>
+       <button type="button" class="btn btn-default btn-lg">
+      <%= image_tag "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQD1lCGSiROaXVJyx1h1CfkuZsiO80_RMyEo1GXCulFXQmUFDGi", width: 20 %> <%=link_to "Xing-Profil ansehen", @user.xing_profile %>
+      </button>
       <br>
-      <%= @user.email  %>
       <br>
-      <%=link_to "Xing-Profil", @user.xing_profile %>
+      <button type="button" class="btn btn-default btn-lg">
+      <span class=".glyphicon .glyphicon-envelope"></span> Per E-Mail anschreiben
+      </button>
     </div>
     <div class="col-md-3">
     </div>
