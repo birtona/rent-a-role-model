@@ -23,8 +23,9 @@ class OauthController < ApplicationController
     email = user['active_email']
     image_url = user['photo_urls']['large']
     job = user['professional_experience']['primary_company']['title']
+    xing_profile = user['permalink']
 
-    new_user = User.new(name: name, city: city, email: email, image_url: image_url, job: job)
+    new_user = User.new(name: name, city: city, email: email, image_url: image_url, job: job, xing_profile: xing_profile)
 
     if new_user.save
       redirect_to home_thanks_path
