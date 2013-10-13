@@ -11,12 +11,14 @@
       <br><br>
       <strong><%= @user.city %> </p></strong>
       <br> 
-      <%=link_to "#{image_tag('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQD1lCGSiROaXVJyx1h1CfkuZsiO80_RMyEo1GXCulFXQmUFDGi', width: 20)} Xing-Profil ansehen".html_safe, @user.xing_profile, class: "btn btn-default btn-lg white_button"%> 
+      <%=link_to @user.xing_profile, class: "btn btn-default btn-lg white_button" do %> 
+        <%= image_tag('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQD1lCGSiROaXVJyx1h1CfkuZsiO80_RMyEo1GXCulFXQmUFDGi', width: 20) %> Xing-Profil ansehen
+      <% end %>
       <br>
       <br>
-      <button type="button" class="btn btn-default btn-lg">
-      <span class="sglyphicon glyphicon-envelope" width: 50px></span> Per E-Mail anschreiben
-      </button>
+      <%= link_to "#", class: "btn btn-default btn-lg white_button" do %>
+        <span class="sglyphicon glyphicon-envelope" width: 50px></span> Per E-Mail anschreiben
+      <% end %>
     </div>
     <div class="col-md-3">
     </div>
