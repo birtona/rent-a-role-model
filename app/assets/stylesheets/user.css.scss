@@ -16,3 +16,21 @@ img.profile {
 a.white_button.btn-lg {
   color: black;
 }
+
+.glyphicon-envelope:before {
+  font-size: 2em;
+  line-height: 1em;
+  vertical-align: top;
+  position: relative;
+  top: -4px;
+}
+
+span.glyphicon-envelope {
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+}
+
+.contact-button {
+  height: 47px;
+}
