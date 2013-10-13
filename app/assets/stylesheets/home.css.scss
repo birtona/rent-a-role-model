@@ -15,12 +15,17 @@ a.btn {
  color: white;
 }
 
-#blue-nav {
+#blue-nav,
+#foot-nav {
   background-color: $brand-primary;
   text-shadow: 0 -1px 0 rgba(0,0,0,.15);
   border-color: $brand-primary;
   box-shadow: 0 1px 0 rgba($brand-primary,.1);
   border-radius: 0px;
+
+  ul {
+    width: 100%;
+  }
 
   .navbar-brand {
     color: white;
@@ -31,5 +36,12 @@ a.btn {
     &:hover {
       color: white;
     }
+  }
+}
+
+#foot-nav {
+  min-height: 0;
+  a {
+    padding: 0.5em 1em 0.5em 0;
   }
 }

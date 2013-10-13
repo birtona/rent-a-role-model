@@ -6,6 +6,7 @@ RentARoleModel::Application.routes.draw do
   get "home/thanks"
   get "home/search"
   get "home/already"
+  get "home/about", as: :about
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

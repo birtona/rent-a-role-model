@@ -13,4 +13,7 @@ class HomeController < ApplicationController
 
   def already
   end  
+
+  def about
+  end
 end
