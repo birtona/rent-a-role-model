@@ -8,6 +8,30 @@
 </head>
 <body>
 
+<header class="navbar navbar-inverse" id="blue-nav">
+  <div class="container">
+    <nav>
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to "Rent a Role Model", root_path, class: "navbar-brand" %>
+        </li>
+
+        <li>
+          <%= link_to "Ich bin ein Role Model", home_role_model_path %>
+        </li>
+
+        <li>
+          <%= link_to "Berlin", users_path(city: "Berlin") %>
+        </li>
+
+        <li>
+          <%= link_to "Hamburg", users_path(city: "Hamburg") %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 <%= yield %>
 
 </body>

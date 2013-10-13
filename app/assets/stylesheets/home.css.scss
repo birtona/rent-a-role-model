@@ -1,6 +1,7 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$brand-primary: #1a7576; // same as Xing color
 
 h1 {
   margin: 1.5em;
@@ -12,4 +13,23 @@ h1 {
 
 a.btn {
  color: white;
+}
+
+#blue-nav {
+  background-color: $brand-primary;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.15);
+  border-color: $brand-primary;
+  box-shadow: 0 1px 0 rgba($brand-primary,.1);
+  border-radius: 0px;
+
+  .navbar-brand {
+    color: white;
+  }
+
+  a {
+    color: lighten($brand-primary, 50%);
+    &:hover {
+      color: white;
+    }
+  }
 }
