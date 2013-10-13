@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<header class="navbar navbar-inverse" id="blue-nav">
+<header class="navbar navbar-inverse navbar-fixed-top" id="blue-nav">
   <div class="container">
     <nav>
       <ul class="nav navbar-nav">
@@ -32,19 +32,23 @@
   </div>
 </header>
 
-<%= yield %>
+<div id="content-body">
+  <%= yield %>
+</div>
 
-<footer class="navbar navbar-inverse navbar-fixed-bottom" id="foot-nav">
-  <div class="container">
-    <nav>
-      <ul class="nav navbar-nav">
-        <li>
+<div class="clearfix">
+  <footer class="navbar navbar-inverse navbar-fixed-bottom" id="foot-nav">
+    <div class="container">
+      <nav>
+        <ul class="nav navbar-nav">
+          <li>
           <%= link_to "Über Uns", about_path %>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</footer>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</div>
 
 </body>
 </html>
