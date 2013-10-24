@@ -3,7 +3,7 @@ class OauthController < ApplicationController
   before_filter :set_consumer
 
   def sign_up
-    request_token = @consumer.get_request_token(:oauth_callback =>"http://rent-a-role-model.herokuapp.com/callback")
+    request_token = @consumer.get_request_token(:oauth_callback =>"http://localhost:3000/callback")
     session[:token] = request_token.token
     session[:secret] = request_token.secret
     # print request_token

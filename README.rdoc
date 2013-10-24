@@ -1,28 +1,15 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Find the demo live version here: https://rent-a-role-model.herokuapp.com
+About: http://rent-a-role-model.herokuapp.com/home/about
 
-Things you may want to cover:
+== Setup in your Terminal
 
-* Ruby version
+git clone git@github.com:birtona/rent-a-role-model.git
+bundle install
+rake db:migrate
+rails s
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+-> open localhost:3000 in your browser and register as a role model with your xing login
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
