@@ -6,6 +6,7 @@
 == Setup in your Terminal
 
 * git clone git@github.com:birtona/rent-a-role-model.git
+* cd rent-a-role-maodel
 * bundle install
 * rake db:migrate
 * rails s
