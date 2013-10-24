@@ -9,14 +9,20 @@
 </head>
 <body>
 
-<header class="navbar navbar-inverse navbar-fixed-top" id="blue-nav">
+<header class="navbar navbar-inverse navbar-fixed-top" id="blue-nav" role="navigation">
   <div class="container">
-    <nav>
-      <ul class="nav navbar-nav">
-        <li>
-          <%= link_to "Rent a Role Model", root_path, class: "navbar-brand" %>
-        </li>
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse-blue">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Rent a Role Model", root_path, class: "navbar-brand" %>
+    </div>
 
+    <div>
+      <ul class="nav navbar-nav navbar-collapse navbar-collapse-blue">
         <li>
           <%= link_to "Ich bin ein Role Model", home_role_model_path %>
         </li>
@@ -29,7 +35,7 @@
           <%= link_to "Hamburg", users_path(city: "Hamburg") %>
         </li>
       </ul>
-    </nav>
+    </div>
   </div>
 </header>
 
