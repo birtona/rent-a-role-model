@@ -1,0 +1,37 @@
+// Place all the styles related to the user controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+img.profile {
+  width: 140px;
+  margin-bottom: 0.5em;
+  outline: 2px solid rgba(0,0,0,0.2);
+  outline-offset: -2px;
+}
+
+.role-model {
+}
+
+a.white_button.btn-lg {
+  color: black;
+  width: 260px;
+}
+
+.glyphicon-envelope:before {
+  font-size: 2em;
+  line-height: 1em;
+  vertical-align: top;
+  position: relative;
+  top: -4px;
+}
+
+span.glyphicon-envelope {
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+}
+
+.contact-button {
+  height: 47px;
+}

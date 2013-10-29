@@ -1,0 +1,16 @@
+== README
+
+* Find the demo live version here: https://rent-a-role-model.herokuapp.com
+* About: http://rent-a-role-model.herokuapp.com/home/about
+
+== Setup in your Terminal
+
+* git clone git@github.com:birtona/rent-a-role-model.git
+* cd rent-a-role-maodel
+* bundle install
+* rake db:migrate
+* rails s
+
+-> open localhost:3000 in your browser and register as a role model with your xing login
+
+
