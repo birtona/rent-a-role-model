@@ -3,6 +3,8 @@
 * Find the demo live version here: https://rent-a-role-model.herokuapp.com
 * About: http://rent-a-role-model.herokuapp.com/home/about
 
+* Rent a Role Model uses Ruby 1.9.3p392 (2013-02-22 revision 39386) [x86_64-darwin10.8.0] and Rails 4.0.0
+
 == Setup in your Terminal
 
 * git clone git@github.com:birtona/rent-a-role-model.git
