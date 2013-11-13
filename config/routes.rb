@@ -1,6 +1,8 @@
 RentARoleModel::Application.routes.draw do
 
 
+  get "contact_form/new"
+  get "contact_form/create"
   get "home/index"
   get "home/role_model"
   get "home/thanks"

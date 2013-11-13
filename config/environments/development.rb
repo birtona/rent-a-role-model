@@ -14,8 +14,13 @@ RentARoleModel::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
+  #config.action_mailer.raise_delivery_errors = false
+  ActionMailer::Base.delivery_method = :smtp 
+  ActionMailer::Base.smtp_settings = { 
+  :address => "localhost", 
+  :port => 1025, 
+  :domain => " " } 
+  
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
