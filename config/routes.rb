@@ -1,8 +1,8 @@
 RentARoleModel::Application.routes.draw do
 
 
-  get "contact_form/new"
-  get "contact_form/create"
+  get "contact_forms/new"
+  get "contact_forms/create"
   get "home/index"
   get "home/role_model"
   get "home/thanks"
@@ -23,6 +23,7 @@ RentARoleModel::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
      resources :users
+     resources :contact_forms
 
   # Example resource route with options:
   #   resources :products do
