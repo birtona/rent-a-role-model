@@ -9,9 +9,10 @@ class ContactForm < MailForm::Base
   # Declare the e-mail headers. It accepts anything the mail method
   # in ActionMailer accepts.
   def headers
+  @user = User.find(params[:user_id])
     {
-      :subject => "My Contact Form",
-      :to => "@user.email",
+      :subject => "Rent a Role Model request",
+      :to => @user.email,
       :from => %("#{name}" <#{email}>)
     }
   end
