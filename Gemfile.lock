@@ -59,6 +59,9 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mail_form (1.5.0)
+      actionmailer (>= 3.2, < 5)
+      activemodel (>= 3.2, < 5)
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.1)
@@ -130,6 +133,7 @@ DEPENDENCIES
   debugger
   jbuilder (~> 1.2)
   jquery-rails
+  mail_form
   oauth
   pg
   rails (= 4.0.0)
