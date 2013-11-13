@@ -7,6 +7,8 @@ gem 'mail_form'
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'sqlite3'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 group :production do
   gem 'pg'
