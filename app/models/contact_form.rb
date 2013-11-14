@@ -5,15 +5,18 @@ class ContactForm < MailForm::Base
 
   attribute :message
   attribute :nickname,  :captcha  => true
+  
 
   # Declare the e-mail headers. It accepts anything the mail method
   # in ActionMailer accepts.
-  def headers
-  @user = User.find(params[:user_id])
+  
+def headers
     {
       :subject => "Rent a Role Model request",
-      :to => @user.email,
+      :to => email,
       :from => %("#{name}" <#{email}>)
     }
   end
 end
+
+

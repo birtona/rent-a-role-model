@@ -1,10 +1,11 @@
 class ContactFormsController < ApplicationController
+
 def new 
 	@user = User.find(params[:user_id])
 	@contact_form = ContactForm.new 
 end 
 
-def create 
+def create	
 	begin 
 		@user = User.find(params[:user_id])
 		@contact_form = ContactForm.new(params[:contact_form]) 
