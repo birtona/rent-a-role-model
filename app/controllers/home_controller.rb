@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   end
 
   def already
-  end  
+  end
 
   def about
   end
