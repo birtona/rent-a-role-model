@@ -31,3 +31,13 @@ def create
 		end 
 	end 
 end 
+
+
+contact form model
+ def initialize(params[:user_id] = {})
+    @user = User
+  end
+
+  def params
+    @params
+  end
