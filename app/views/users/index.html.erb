@@ -10,14 +10,14 @@
   <% if @city.nil? %>
     <div class="row">
       <div class="col-md-6 col-sm-6 col-xs-12 padded-bottom">
-        <%= link_to "Role Models in Berlin",
+        <%= link_to "Zeige mir Role Models in Berlin",
                     users_path(city: "Berlin"),
                     class: "btn btn-primary btn-block"
         %>
       </div>
 
       <div class="col-md-6 col-sm-6 col-xs-12 padded-bottom">
-        <%= link_to "Role Models in Hamburg",
+        <%= link_to "Zeige mir Role Models in Hamburg",
                     users_path(city: "Hamburg"),
                     class: "btn btn-primary btn-block"
         %>
@@ -33,6 +33,7 @@
       <% end %>
 
       <%= content_tag :p, user.job %>
+      <%= content_tag :p, user.city %>
     </div>
   <% end %>
 </div>
