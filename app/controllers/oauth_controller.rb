@@ -8,11 +8,11 @@ class OauthController < ApplicationController
     session[:secret] = request_token.secret
     # print request_token
     redirect_to request_token.authorize_url
-  end  
+  end
 
   def callback
     request_token = OAuth::RequestToken.new(@consumer, session[:token], session[:secret])
-    access_token = request_token.get_access_token(:oauth_verifier => params[:oauth_verifier]) 
+    access_token = request_token.get_access_token(:oauth_verifier => params[:oauth_verifier])
 
     result = access_token.request(:get, "https://api.xing.com/v1/users/me")
     user = JSON.parse(result.body)
@@ -46,5 +46,5 @@ class OauthController < ApplicationController
       :access_token_path => "/v1/access_token"
     })
   end
- 
+
 end
