@@ -9,6 +9,7 @@ def create
 	begin 
 		@user = User.find(params[:user_id])
 		@contact_form = ContactForm.new(params[:contact_form]) 
+		@contact_form.user = @user
 		@contact_form.request = request 
 		if @contact_form.deliver 
 			flash.now[:notice] = 'Thank you for your message!' 
