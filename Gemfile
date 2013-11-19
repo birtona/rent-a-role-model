@@ -2,10 +2,16 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
+gem 'mail_form'
 
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'sqlite3'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  #MailCatcher runs a super simple SMTP server which catches any message sent to it to display in a web interface. 
+  #check out http://127.0.0.1:1080 to see the mail. 
+  gem 'mailcatcher'
 end
 group :production do
   gem 'pg'
