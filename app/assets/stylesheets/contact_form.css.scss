@@ -1,3 +1,26 @@
 // Place all the styles related to the contact_form controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  margin-left: 5em;
+  margin-top: 2em;
+}
+
+.name-field {
+	width: 200px;
+   height: 20px;
+}
+
+.email-field {
+	width: 200px;
+   height: 20px;
+}
+
+.message-field {
+	width: 300px;
+   height: 300px;
+}
+.subtext_create {
+	margin-left: 10em
+}

@@ -1,17 +1,17 @@
 <%= form_for @contact_form, url: user_contact_forms_path(user_id: @user.id) do |f| %>
 <div>
 <%= f.label :name, "Ihr Name" %><br/>
-<%= f.text_field :name %>
+<%= f.text_field :name, :class => "name-field" %>
 </div>
 <br/>
 <div>
 <%= f.label :email, "Ihre Email Adresse" %><br/>
-<%= f.text_field :email %>
+<%= f.text_field :email, :class => "email-field"  %>
 </div>
 <br/>
 <div>
 <%= f.label :message, "Nachricht an Ihr Role Model"%><br/>
-<%= f.text_area :message %>
+<%= f.text_area :message, :class => "message-field"  %>
 </div>
 <br/>
 <div>
