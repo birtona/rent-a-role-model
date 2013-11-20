@@ -12,8 +12,8 @@ def create
 		@contact_form.user = @user
 		@contact_form.request = request 
 		if @contact_form.deliver 
-			flash.now[:notice] = 'Thank you for your message!' 
 		else 
+			flash.now[:error] = 'Fehler beim Versenden. Bitte pruefen Sie Ihre Angaben.' 
 			render :new 
 		end 
 	rescue ScriptError 

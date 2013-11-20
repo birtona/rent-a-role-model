@@ -1,4 +1,5 @@
 <%= form_for @contact_form, url: user_contact_forms_path(user_id: @user.id) do |f| %>
+
 <div>
 <%= f.label :name, "Ihr Name" %><br/>
 <%= f.text_field :name, :class => "name-field" %>
