@@ -63,6 +63,6 @@ RentARoleModel::Application.routes.draw do
   #   end
 
   get 'sign_up' => 'oauth#sign_up'
-  get 'callback' => "oauth#callback"
+  get 'callback' => 'oauth#callback', as: :callback
 
 end
