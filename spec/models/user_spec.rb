@@ -30,7 +30,7 @@ describe User do
 
     context 'valid xing profile' do
       it 'sets profile_loaded to true' do
-        subject.update_profile({})
+        subject.update_profile(display_name: 'John Doe')
         expect(subject.profile_loaded).to be_true
       end
 
@@ -86,7 +86,7 @@ describe User do
 
     context 'invalid xing profile' do
       it 'sets profile_loaded to false' do
-        subject.update_profile(nil)
+        subject.update_profile({})
 
         expect(subject.profile_loaded).to be_false
       end
@@ -102,6 +102,12 @@ describe User do
       XingApi::User.stub(:me).and_return(xing_response)
 
       expect(subject.load_xing_profile).to eq(user_profile)
+    end
+
+    it 'returns empty profile if loading fails' do
+      XingApi::User.stub(:me).and_raise(XingApi::Error.new(nil))
+
+       expect(subject.load_xing_profile).to eq({})
     end
   end
 end
