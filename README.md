@@ -1,4 +1,4 @@
-# rent-a-role-model [![Build Status](https://travis-ci.org/johanness/rent-a-role-model.png?branch=master)](https://travis-ci.org/johanness/rent-a-role-model)
+# rent-a-role-model [![Build Status](https://travis-ci.org/birtona/rent-a-role-model.png?branch=master)](https://travis-ci.org/birtona/rent-a-role-model)
 
 * Find the demo live version here: https://rent-a-role-model.herokuapp.com
 * About: http://rent-a-role-model.herokuapp.com/home/about
