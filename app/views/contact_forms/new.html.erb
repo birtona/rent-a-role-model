@@ -1,8 +1,9 @@
 
 <%- if Rails.env.production? %>
-  <div>
-    <p>Vielen Dank für ihr Interesse! Das Anschreiben der Role Models per E-Mail wird bald zur Verfügung stehen<p>
-  </div>
+    <div class="container col-md-12">
+      <h1 class="text-center">
+        <%=  link_to "Vielen Dank für dein Interesse! Das Anschreiben der Role Models per E-Mail wird bald zur Verfügung stehen.", about_path, class: 'btn btn-primary btn-block'  %>
+    </div>
 <%- else %>
     <%= form_for @contact_form, url: user_contact_forms_path(user_id: @user.id) do |f| %>
     <div>
@@ -20,5 +21,5 @@
     <div>
     <%= f.submit "Send" %>
     </div>
-<% end %>
+    <% end %>
 <% end %>
