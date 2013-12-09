@@ -1,17 +1,24 @@
-<%= form_for @contact_form, url: user_contact_forms_path(user_id: @user.id) do |f| %>
-<div>
-<%= f.label :name %><br/>
-<%= f.text_field :name %>
-</div>
-<div>
-<%= f.label :email %><br/>
-<%= f.text_field :email %>
-</div>
-<div>
-<%= f.label :message %><br/>
-<%= f.text_area :message %>
-</div>
-<div>
-<%= f.submit "Send" %>
-</div>
+
+<%- if Rails.env.production? %>
+  <div>
+    <p>Vielen Dank für ihr Interesse! Das Anschreiben der Role Models per E-Mail wird bald zur Verfügung stehen<p>
+  </div>
+<%- else %>
+    <%= form_for @contact_form, url: user_contact_forms_path(user_id: @user.id) do |f| %>
+    <div>
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %>
+    </div>
+    <div>
+    <%= f.label :email %><br/>
+    <%= f.text_field :email %>
+    </div>
+    <div>
+    <%= f.label :message %><br/>
+    <%= f.text_area :message %>
+    </div>
+    <div>
+    <%= f.submit "Send" %>
+    </div>
+<% end %>
 <% end %>
