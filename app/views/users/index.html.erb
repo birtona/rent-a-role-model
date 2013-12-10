@@ -1,5 +1,30 @@
 <div class="container user-index">
-  <h1 class="text-center"><%= @city %> Role Models</h1>
+  <h1 class="text-center">
+    <% if @city.nil? %>
+      Suche nach einem Role Model in deiner Stadt!
+    <% else %>
+      <%= @city %> Role Models
+    <% end %>
+  </h1>
+
+  <% if @city.nil? %>
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12 padded-bottom">
+        <%= link_to "Zeige mir Role Models in Berlin",
+                    users_path(city: "Berlin"),
+                    class: "btn btn-primary btn-block"
+        %>
+      </div>
+
+      <div class="col-md-6 col-sm-6 col-xs-12 padded-bottom">
+        <%= link_to "Zeige mir Role Models in Hamburg",
+                    users_path(city: "Hamburg"),
+                    class: "btn btn-primary btn-block"
+        %>
+      </div>
+    </div>
+  <% end %>
+
   <% @users.each do |user| %>
     <div class="role-model pull-left clearfix col-md-2">
       <%= link_to user_path(user) do %>
@@ -8,6 +33,7 @@
       <% end %>
 
       <%= content_tag :p, user.job %>
+      <%= content_tag :p, user.city %>
     </div>
   <% end %>
 </div>

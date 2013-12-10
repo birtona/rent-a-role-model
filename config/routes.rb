@@ -3,7 +3,6 @@ RentARoleModel::Application.routes.draw do
   get "home/index"
   get "home/role_model"
   get "home/thanks"
-  get "home/search"
   get "home/already"
   get "home/about", as: :about
   # The priority is based upon order of creation: first created -> highest priority.
@@ -48,7 +47,7 @@ RentARoleModel::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
