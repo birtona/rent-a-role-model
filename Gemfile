@@ -9,15 +9,17 @@ group :development do
   gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller'
-  #MailCatcher runs a super simple SMTP server which catches any message sent to it to display in a web interface. 
-  #check out http://127.0.0.1:1080 to see the mail. 
+  #MailCatcher runs a super simple SMTP server which catches any message sent to it to display in a web interface.
+  #check out http://127.0.0.1:1080 to see the mail.
   gem 'mailcatcher'
 end
 group :production do
  # gem 'pg'
   gem 'rails_12factor'
 end
-
+group :development, :test do
+  gem 'rspec-rails'
+end
 
 
 # Use SCSS for stylesheets
@@ -46,7 +48,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'oauth'
+gem 'xing_api'
 gem 'bootstrap-sass-rails'
 
 # Use ActiveModel has_secure_password
@@ -57,6 +59,3 @@ gem 'bootstrap-sass-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
-
-# Use debugger
-gem 'debugger', group: [:development, :test]
