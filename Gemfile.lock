@@ -81,7 +81,6 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.1)
     oauth (0.4.7)
-    pg (0.15.1)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-protection (1.5.1)
@@ -179,7 +178,6 @@ DEPENDENCIES
   jquery-rails
   mail_form
   mailcatcher
-  pg
   rails (= 4.0.0)
   rails_12factor
   rspec-rails

@@ -1,25 +1,21 @@
+<%= form_for @contact_form, url: user_contact_forms_path(user_id: @user.id) do |f| %>
 
-<%- if Rails.env.production? %>
-    <div class="container col-md-12">
-      <h1 class="text-center">
-        <%=  link_to "Vielen Dank für dein Interesse! Das Anschreiben der Role Models per E-Mail wird bald zur Verfügung stehen.", about_path, class: 'btn btn-primary btn-block'  %>
-    </div>
-<%- else %>
-    <%= form_for @contact_form, url: user_contact_forms_path(user_id: @user.id) do |f| %>
-    <div>
-    <%= f.label :name %><br/>
-    <%= f.text_field :name %>
-    </div>
-    <div>
-    <%= f.label :email %><br/>
-    <%= f.text_field :email %>
-    </div>
-    <div>
-    <%= f.label :message %><br/>
-    <%= f.text_area :message %>
-    </div>
-    <div>
-    <%= f.submit "Send" %>
-    </div>
-    <% end %>
+<div>
+<%= f.label :name, "Ihr Name" %><br/>
+<%= f.text_field :name, :class => "name-field" %>
+</div>
+<br/>
+<div>
+<%= f.label :email, "Ihre Email Adresse" %><br/>
+<%= f.text_field :email, :class => "email-field"  %>
+</div>
+<br/>
+<div>
+<%= f.label :message, "Nachricht an Ihr Role Model"%><br/>
+<%= f.text_area :message, :class => "message-field"  %>
+</div>
+<br/>
+<div>
+<%= f.submit "Senden" %>
+</div>
 <% end %>

@@ -42,7 +42,11 @@
 <div id="content-body">
   <%= yield %>
 </div>
-
+<div style="color: #FF0000">
+<% flash.each do |key, value| %>
+    <div class="flash <%= key %>"><%= value %></div>
+<% end %>
+</div>
 <div class="clearfix">
   <footer class="navbar navbar-inverse navbar-fixed-bottom" id="foot-nav">
     <div class="container">
