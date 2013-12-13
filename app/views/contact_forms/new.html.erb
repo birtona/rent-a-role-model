@@ -1,21 +1,27 @@
-<%= form_for @contact_form, url: user_contact_forms_path(user_id: @user.id) do |f| %>
+<div class="container col-md-12 col-sm-12 col-xs-12">
+  <h1 class="text-center">Role Model per E-Mail anschreiben</h1>
+  <p>Mit untenstehendem Formular kannst du eine E-Mail an das von dir ausgewählte Role Model schreiben und sie z.B. als Referentin für eine Berufsinformationsveranstaltung anfragen. Bitte gib auf jeden Fall deine richtige E-Mailadresse an, damit du eine Antwort bekommmen kannst und beschreibe dem Role Model möglichst genau, um was für eine Veranstaltung es sich handelt (welche Schule, Stufe, Format, Datum etc.).</p>
 
-<div>
-<%= f.label :name, "Ihr Name" %><br/>
-<%= f.text_field :name, :class => "name-field" %>
+    <%= form_for @contact_form, url: user_contact_forms_path(user_id: @user.id) do |f| %>
+
+    <div>
+    <%= f.label :name, "Dein Name" %><br/>
+    <%= f.text_field :name, :class => "name-field" %>
+    </div>
+    <br/>
+    <div>
+    <%= f.label :email, "Deine Email Adresse" %><br/>
+    <%= f.text_field :email, :class => "email-field"  %>
+    </div>
+    <br/>
+    <div>
+    <%= f.label :message, "Nachricht an dein Role Model"%><br/>
+    <%= f.text_area :message, :class => "message-field"  %>
+    </div>
+    <br/>
+    <div>
+    <%= f.submit "Senden" %>
+    </div>
+    <% end %>
+
 </div>
-<br/>
-<div>
-<%= f.label :email, "Ihre Email Adresse" %><br/>
-<%= f.text_field :email, :class => "email-field"  %>
-</div>
-<br/>
-<div>
-<%= f.label :message, "Nachricht an Ihr Role Model"%><br/>
-<%= f.text_area :message, :class => "message-field"  %>
-</div>
-<br/>
-<div>
-<%= f.submit "Senden" %>
-</div>
-<% end %>
