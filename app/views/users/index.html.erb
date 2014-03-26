@@ -26,7 +26,7 @@
   <% end %>
 
   <% @users.each do |user| %>
-    <div class="role-model pull-left clearfix col-md-2">
+    <div class="user">
       <%= link_to user_path(user) do %>
         <%= image_tag(user.image_url, class: "profile") %>
         <%= content_tag :p, user.name %>
