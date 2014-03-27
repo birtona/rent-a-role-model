@@ -2,15 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$screen-sm: 768px;
+$screen-md: 992px;
 
 img.profile {
-  width: 140px;
-  margin-bottom: 0.5em;
-  outline: 2px solid rgba(0,0,0,0.2);
-  outline-offset: -2px;
-}
-
-.role-model {
+  float: left;
+  margin: 0 1em 0 0;
+  width: 70px;
+  height: auto;
+  outline: 1px solid rgba(0,0,0,0.2);
+  outline-offset: -1px;
 }
 
 a.white_button.btn-lg {
@@ -36,7 +37,67 @@ span.glyphicon-envelope {
   height: 47px;
 }
 
-.user{
-  float: left;
-  margin: 0 0 0 18px;
+.users{
+  -webkit-column-count:1;
+  -moz-column-count:1;
+  column-count:1;
 }
+
+.user{
+  border: 1px solid #fff;
+  background: none #fcfcfc;
+  margin: 0 0.5em 0.5em 0;
+  overflow: hidden;
+  position: relative;
+  padding: 0.3em;
+  border: 1px solid rgba(0, 0, 0, 0.2);  
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
+}
+
+.more{
+  position: absolute;
+  bottom: 0.3em;
+  right: 0.3em;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+.more:hover{text-decoration: none;}
+.more:before{
+  content: ">> "; 
+  font-size: 0.7em;
+}
+.more:after{
+  content: " <<";
+  font-size: 0.7em;
+}
+
+/* tablets or larger (768px and up) */
+@media (min-width: $screen-sm) {
+  .user{
+    margin: 0 0.7em 1em 0;
+  }
+  img.profile {
+    float: left;
+    margin: 0 1em 0 0;
+    width: 140px;
+    outline: 1px solid rgba(0,0,0,0.2);
+    outline-offset: -1px;
+   }
+  .more{
+    position: absolute;
+    bottom: 0.6em;
+    right: 0.6em;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md) {
+  .users{
+    -webkit-column-count:2;
+    -moz-column-count:2;
+    column-count:2;
+  }
+}
+

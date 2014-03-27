@@ -25,15 +25,17 @@
     </div>
   <% end %>
 
-  <% @users.each do |user| %>
-    <div class="user">
-      <%= link_to user_path(user) do %>
-        <%= image_tag(user.image_url, class: "profile") %>
-        <%= content_tag :p, user.name %>
-      <% end %>
-
-      <%= content_tag :p, user.job %>
-      <%= content_tag :p, user.city %>
-    </div>
-  <% end %>
+  <div class="users">
+    <% @users.each do |user| %>
+      <div class="user">
+        <%= link_to user_path(user) do %>
+          <%= image_tag(user.image_url, class: "profile", alt: user.name) %>
+        <% end %>
+        <p><%= link_to user_path(user) do %><%=user.name %><% end %></p>
+        <%= content_tag :p, user.job %>
+        <%= content_tag :p, user.city %>
+        <%= link_to user_path(user), :class=>"more" do %>Mehr Infos<% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
