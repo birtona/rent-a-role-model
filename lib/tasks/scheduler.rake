@@ -8,3 +8,4 @@ task :synchronize_users => :environment do
   	User.update_existing_user(user)
   puts "done."
 end
+
