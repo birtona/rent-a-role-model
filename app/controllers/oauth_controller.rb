@@ -21,10 +21,11 @@ class OauthController < ApplicationController
     if new_user.save
       redirect_to home_thanks_path
     else
+      User.update_existing_user(new_user)
       redirect_to home_already_path
     end
   end
-
+  
   private
 
   def set_client

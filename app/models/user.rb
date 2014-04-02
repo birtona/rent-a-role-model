@@ -9,7 +9,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.update_existing_user(user)
+      user = User.find_by(access_token: user.access_token, access_token_secret: user.access_token_secret)
+      user.update_profile(user.load_xing_profile)
+      user.save
+  end
+
   def update_profile(profile)
+    
     if profile.present?
       self.name           = profile[:display_name]
       self.email          = profile[:active_email]
