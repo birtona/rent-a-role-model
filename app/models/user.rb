@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_one :user_information
   validates_uniqueness_of :email
 
   def self.build_with_xing(token)
