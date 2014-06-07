@@ -1,5 +1,6 @@
 class Admin::UserInformationsController < ApplicationController
-  before_action :authorize
+  before_action :authenticate
+  before_action ->(param=params[:user_id]) { authorize param }
   before_action :load_user
   # need authentication
 
@@ -43,4 +44,5 @@ class Admin::UserInformationsController < ApplicationController
   def user_information_params
     params.require(:user_information).permit(:why, :past, :projects, :places, :mentoring, :user_id)
   end
+
 end
