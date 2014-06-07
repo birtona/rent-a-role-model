@@ -12,6 +12,7 @@ group :development do
   #MailCatcher runs a super simple SMTP server which catches any message sent to it to display in a web interface.
   #check out http://127.0.0.1:1080 to see the mail.
   gem 'mailcatcher'
+  gem 'debugger'
 end
 group :production do
   gem 'pg'
@@ -20,7 +21,9 @@ end
 group :development, :test do
   gem 'rspec-rails'
 end
-
+group :coverage do
+    gem 'simplecov', :require => false
+  end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -32,7 +35,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
