@@ -93,6 +93,40 @@ describe User do
     end
   end
 
+  describe '.update_existing_user' do
+
+    it 'identifies user by email' do
+      new_user = User.new
+      new_user.email = 'mary@vomar.de'
+      expected = User.create!(email:'mary@vomar.de')
+
+      actual = User.update_existing_user(new_user)
+
+      expect(actual).to eq(expected)
+    end
+
+    it 'access token and secret are updated' do
+      new_user = User.new(email:'mary@vomar.de', access_token: 'new access token', access_token_secret: 'new acces token secret')
+      User.create!(email:'mary@vomar.de', access_token: 'old access token', access_token_secret: 'old acces token secret')
+
+      user = User.update_existing_user(new_user)
+
+      expect(user.access_token).to eq(new_user.access_token)
+      expect(user.access_token_secret).to eq(new_user.access_token_secret)
+    end
+
+    it 'updates user profile from XING' do
+      new_user = User.new(email:'mary@vomar.de')
+      User.create!(email:'mary@vomar.de')
+      profile_stub = stub
+      new_user.stub(:load_xing_profile).and_return(profile_stub)
+
+      User.any_instance.should_receive(:update_profile).with(profile_stub)
+
+      user = User.update_existing_user(new_user)
+    end
+  end
+
   describe 'load_xing_profile' do
     subject { User.new }
     let(:user_profile) { double }
