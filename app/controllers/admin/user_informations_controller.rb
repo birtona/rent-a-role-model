@@ -1,4 +1,5 @@
 class Admin::UserInformationsController < ApplicationController
+  before_action :authorize
   before_action :load_user
   # need authentication
 
@@ -36,7 +37,7 @@ class Admin::UserInformationsController < ApplicationController
 
   private
   def load_user
-    @user = User.first #current_user
+    @user = current_user
   end
 
   def user_information_params

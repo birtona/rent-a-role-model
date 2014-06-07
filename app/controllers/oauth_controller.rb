@@ -19,10 +19,17 @@ class OauthController < ApplicationController
     new_user = User.build_with_xing(access_token)
 
     if new_user.save
-      redirect_to home_thanks_path
+      #redirect_to home_thanks_path
     else
-      User.update_existing_user(new_user)
-      redirect_to home_already_path
+      new_user = User.update_existing_user(new_user)
+      #redirect_to home_already_path
+    end
+    
+    session[:user_id] = new_user.id
+    if new_user.user_information
+      redirect_to edit_admin_user_user_information_path(new_user.id)
+    else
+      redirect_to new_admin_user_user_information_path(new_user.id)
     end
   end
   
