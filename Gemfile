@@ -12,6 +12,7 @@ group :development do
   #MailCatcher runs a super simple SMTP server which catches any message sent to it to display in a web interface.
   #check out http://127.0.0.1:1080 to see the mail.
   gem 'mailcatcher'
+  gem 'debugger'
 end
 group :production do
   gem 'pg'
