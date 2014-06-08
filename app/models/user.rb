@@ -11,17 +11,20 @@ class User < ActiveRecord::Base
   end
 
   def self.update_existing_user(new_user)
-      user = User.find_by(email:new_user.email)
-      user.access_token = new_user.access_token
-      user.access_token_secret = new_user.access_token_secret
-      user.update_profile(new_user.load_xing_profile)
-      user.save
+    user = User.find_by(email: new_user.email)
+    user.access_token = new_user.access_token
+    user.access_token_secret = new_user.access_token_secret
+    user.update_profile(new_user.load_xing_profile)
+    user.save
 
-      user
+    user
   end
 
   def update_profile(profile)
+<<<<<<< HEAD
     
+=======
+>>>>>>> e944ba1fcaeabd5c248564a4aecb472acedd1f26
     if profile.present?
       self.name           = profile[:display_name]
       self.email          = profile[:active_email]
