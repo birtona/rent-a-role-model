@@ -10,8 +10,8 @@ class Admin::UserInformationsController < ApplicationController
 
   def create
     @info = @user.create_user_information(user_information_params)
-    if @info
-      redirect_to admin_user_user_information(@user, @info)
+    if @info.save
+      redirect_to @user
     else
       render 'new', alert: 'Es ist ein Fehler aufgetreten'
     end
@@ -24,7 +24,7 @@ class Admin::UserInformationsController < ApplicationController
   def update
     @info = @user.user_information
     if @info.update(user_information_params)
-      redirect_to admin_user_user_information(@user, @info)  
+      redirect_to @user
     else
       render 'edit', alert: 'Es ist ein Fehler aufgetreten'
     end    
@@ -33,7 +33,7 @@ class Admin::UserInformationsController < ApplicationController
   def destroy
     @info = @user.user_information
     @info.destroy
-    redirect_to admin_user_user_information(@user, @info)
+    redirect_to @user
   end
 
   private
