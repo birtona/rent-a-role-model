@@ -4,3 +4,9 @@
 require File.expand_path('../config/application', __FILE__)
 
 RentARoleModel::Application.load_tasks
+
+#Run RSpec with code coverage"
+task :coverage do
+  ENV['COVERAGE'] = true
+  Rake::Task["spec"].execute
+end
