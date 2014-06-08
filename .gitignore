@@ -20,3 +20,6 @@
 .rvmrc
 /coverage
 
+# simplecov output
+coverage/
+
