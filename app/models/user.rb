@@ -21,10 +21,6 @@ class User < ActiveRecord::Base
   end
 
   def update_profile(profile)
-<<<<<<< HEAD
-    
-=======
->>>>>>> e944ba1fcaeabd5c248564a4aecb472acedd1f26
     if profile.present?
       self.name           = profile[:display_name]
       self.email          = profile[:active_email]
