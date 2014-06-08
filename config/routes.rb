@@ -5,6 +5,8 @@ RentARoleModel::Application.routes.draw do
   get "home/thanks"
   get "home/already"
   get "home/about", as: :about
+
+  get "logout", to: 'sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -55,12 +57,13 @@ RentARoleModel::Application.routes.draw do
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  namespace :admin do
+    # Directs /admin/products/* to Admin::ProductsController
+    # (app/controllers/admin/products_controller.rb)
+    resources :users do
+      resource :user_information, only: [:show, :new, :create, :edit, :update, :destroy]
+    end
+  end
 
   get 'sign_up' => 'oauth#sign_up'
   get 'callback' => 'oauth#callback', as: :callback

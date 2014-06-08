@@ -1,0 +1,2 @@
+module Admin::UserInformationsHelper
+end
