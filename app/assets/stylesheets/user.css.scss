@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$screen-sm: 768px;
-$screen-md: 992px;
+$screen-sm: 600px;
+$screen-md: 970px;
 
 img.profile {
   float: left;
@@ -37,11 +37,15 @@ span.glyphicon-envelope {
   height: 47px;
 }
 
-.users{
-  -webkit-column-count:1;
-  -moz-column-count:1;
-  column-count:1;
+.selection {width: 100%;}
+
+.selection .selectionBtn{
+  width: 50%;
 }
+
+.users{
+  width: 100%;
+ }
 
 .user{
   border: 1px solid #fff;
@@ -94,10 +98,13 @@ span.glyphicon-envelope {
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: $screen-md) {
-  .users{
-    -webkit-column-count:2;
-    -moz-column-count:2;
-    column-count:2;
+  .row > div.users {width: 100%;}
+  .user {
+    width: 48%;
+    float: left;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
   }
 }
 

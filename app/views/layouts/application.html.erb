@@ -3,63 +3,34 @@
 <head>
   <title>Rent a Role Model</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'fav.ico' %>
 </head>
+
 <body>
-
-<header class="navbar navbar-inverse navbar-fixed-top" id="blue-nav" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse-blue">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to "Rent a Role Model", root_path, class: "navbar-brand" %>
+    <div id="cover">
+        <div class="bannerImg"></div>
     </div>
+    <div id="wrapper">
+      <%= yield %>
+  
+      <div id="message">
+        <% flash.each do |key, value| %>
+          <div class="flash <%= key %>"><%= value %></div>
+        <% end %>
+      </div>
 
-    <div>
-      <ul class="nav navbar-nav navbar-collapse navbar-collapse-blue">
-        <li>
-          <%= link_to "Ich bin ein Role Model", home_role_model_path %>
-        </li>
-
-        <li>
-          <%= link_to "Berlin", users_path(city: "Berlin") %>
-        </li>
-
-        <li>
-          <%= link_to "Hamburg", users_path(city: "Hamburg") %>
-        </li>
-      </ul>
-    </div>
-  </div>
-</header>
-
-<div id="content-body">
-  <%= yield %>
-</div>
-<div style="color: #FF0000">
-<% flash.each do |key, value| %>
-    <div class="flash <%= key %>"><%= value %></div>
-<% end %>
-</div>
-<div class="clearfix">
-  <footer class="navbar navbar-inverse navbar-fixed-bottom" id="foot-nav">
-    <div class="container">
-      <nav>
-        <ul class="nav navbar-nav">
-          <li>
-          <%= link_to "Über uns", about_path %>
-          </li>
-        </ul>
+      <nav class="row">
+          <ul>
+            <li><%= link_to "Ich bin ein Role Model", home_role_model_path %></li>
+            <li><%= link_to "Berlin", users_path(city: "Berlin") %>
+            </li>
+            <li><%= link_to "Hamburg", users_path(city: "Hamburg") %></li>
+            <li><%=link_to "Über uns", about_path %></li>
+          </ul>
       </nav>
     </div>
-  </footer>
-</div>
 
-</body>
+
+  </body>
 </html>

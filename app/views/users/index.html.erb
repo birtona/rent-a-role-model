@@ -1,4 +1,5 @@
-<div class="container user-index">
+
+  <div id="logo">Rent a Role Model</div>
   <h1 class="text-center">
     <% if @city.nil? %>
       Suche nach einem Role Model in deiner Stadt!
@@ -8,23 +9,22 @@
   </h1>
 
   <% if @city.nil? %>
-    <div class="row">
-      <div class="col-md-6 col-sm-6 col-xs-12 padded-bottom">
+    <div class="row selection">
+      <div class="selectionBtn">
         <%= link_to "Zeige mir Role Models in Berlin",
                     users_path(city: "Berlin"),
-                    class: "btn btn-primary btn-block"
+                    class: "btn submit"
         %>
       </div>
 
-      <div class="col-md-6 col-sm-6 col-xs-12 padded-bottom">
+      <div class="selectionBtn">
         <%= link_to "Zeige mir Role Models in Hamburg",
                     users_path(city: "Hamburg"),
-                    class: "btn btn-primary btn-block"
+                    class: "btn submit"
         %>
       </div>
-    </div>
-  <% end %>
 
+  <% end %>
   <div class="users">
     <% @users.each do |user| %>
       <div class="user">

@@ -52,7 +52,7 @@ group :doc do
 end
 
 gem 'xing_api'
-gem 'bootstrap-sass-rails'
+#gem 'bootstrap-sass-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

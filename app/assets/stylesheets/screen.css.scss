@@ -1,0 +1,181 @@
+
+@font-face {
+  font-family: 'LobsterTwo-Bold';
+  src: url('LobsterTwo-Bold.eot');
+  src: local('LobsterTwo-Bold'), url('LobsterTwo-Bold.woff') format('woff'), url('LobsterTwo-Bold.ttf') format('truetype');
+}
+/* Font downloaded from FontsForWeb.com */
+
+body {
+  font: 100% arial, verdana, sans-serif;
+  background: none #fff;
+  margin: 0;
+  color: #fff;
+}
+
+a,
+a:hover,
+a:active {color: #fff;}
+
+#cover {
+  position: absolute;
+    overflow: hidden;
+  z-index: -1;
+  top: 0;
+  height: 100%;
+  width: 100%;
+    opacity: .35;
+    height: 100%;
+    width: 100%;
+}
+
+.bannerImg {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background: url(classroom2.jpg) 100% -8% no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: auto 39%;
+}
+
+#wrapper {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 1em;
+}
+
+.row{
+  background: none rgba(134,82,149,1);
+  display: inline-block;
+  clear: both;
+}
+
+.row > div {
+  float: left;
+  padding: 1em;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#logo{
+  font: 600 3em/1em 'LobsterTwo-Bold', cursive;
+  text-align: center;
+  margin: 0;
+  color: #6A287E;
+  text-shadow: 3px 3px 3px #fff;
+  margin: 0 0 .02em 0;
+}
+
+h1 {
+  font: 400 1.2em/1em 'LobsterTwo-Bold', cursive;
+  text-align: center;
+  margin: 0 0 .2em 0;
+  color: #6A287E;
+}
+
+select,
+.btn {
+  padding: .5em;
+  border: 1px solid #777;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+select {background: none #ddd;}
+
+.btn,
+.btn:hover,
+.btn:active {
+  color:#fff;
+  background: none #fff;
+}
+
+.submit {background: none #406;}
+.submit:hover{background: none #53007d}
+
+/* navigation */
+nav {
+  width: 100%;
+}
+nav ul {
+  clear: both;
+  margin: 0 1em;
+  padding: 0;
+  width: 100%;
+  display: block;
+}
+
+nav li {
+  list-style: none;
+  display: inline-block;
+  float: left;
+  margin: 0 .2em;
+  padding: .4em;
+}
+nav a,
+nav a:hover,
+nav a:active {
+  color: #fff;
+  text-decoration: none;
+  color:#fff;
+}
+
+nav li:hover{background: none #53007d;}
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++ */
+@media screen and (min-width: 600px) {
+  
+  .bannerImg{
+    background-position: 100% 100%; 
+    background-size: auto 39%;
+  }
+
+  #wrapper{
+    width: 80%;
+    padding-top: 2em; 
+  }
+  .row {
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    border-radius: 0.5em;
+  }
+
+  nav.row {
+    -webkit-border-radius: 0.3em;
+    -moz-border-radius: 0.3em;
+    border-radius: 0.3em;
+  }
+
+  
+  #logo {font-size: 3.5em;}
+  h1 {margin: 0 0 .5em 0;}
+}
+
+@media screen and (min-width: 970px) {
+  .bannerImg{background-size: auto 60%;}
+  #wrapper{
+    width: 65%;
+  }
+  .row {
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    border-radius: 1em;
+  }
+  .row > div {width: 50%;}
+
+  .row {background: none rgba(106,40,126,.8); }
+
+  #logo {font-size: 4em;}
+  h1 {margin: 0 0 1em 0;}
+}
