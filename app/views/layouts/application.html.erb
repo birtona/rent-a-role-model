@@ -13,12 +13,14 @@
     </div>
     <div id="wrapper">
       <% if current_user %>
-      <div>
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'Ausloggen', logout_path %></li>
-        </ul>
-      </div>
-    <% end %>
+        <div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to 'Ausloggen', logout_path %></li>
+          </ul>
+        </div>
+      <% end %>
+      
+      <div id="logo">Rent a Role Model</div>
 
       <%= yield %>
   
@@ -30,11 +32,12 @@
 
       <nav class="row">
           <ul>
+            <li><%= link_to "Home", root_url %></li>
             <li><%= link_to "Ich bin ein Role Model", home_role_model_path %></li>
             <li><%= link_to "Berlin", users_path(city: "Berlin") %>
             </li>
             <li><%= link_to "Hamburg", users_path(city: "Hamburg") %></li>
-            <li><%=link_to "Über uns", about_path %></li>
+            <li><%= link_to "Über uns", about_path %></li>
           </ul>
       </nav>
     </div>
