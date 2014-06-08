@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_one :user_information
   validates_uniqueness_of :email
 
   def self.build_with_xing(token)
@@ -21,7 +22,7 @@ class User < ActiveRecord::Base
 
   def update_profile(profile)
     
-  if profile.present?
+    if profile.present?
       self.name           = profile[:display_name]
       self.email          = profile[:active_email]
       self.city           = profile[:private_address].try(:[], :city) || profile[:business_address].try(:[], :city)

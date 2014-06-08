@@ -36,6 +36,13 @@
         </li>
       </ul>
     </div>
+    <% if current_user %>
+      <div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Ausloggen', logout_path %></li>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </header>
 
