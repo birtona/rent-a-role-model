@@ -46,4 +46,9 @@ class User < ActiveRecord::Base
     {}
   end
 
+  def profile_owner? user
+    return true if self.id == user.id
+    return false
+  end
+
 end

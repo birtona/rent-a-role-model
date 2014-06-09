@@ -26,5 +26,8 @@
     </div>
     <div class="col-md-3 col-sm-0 col-xs-0">
     </div>
+    <% if current_user && current_user.profile_owner?(@user) %>
+      <%= link_to 'Mein Profile bearbeiten', edit_admin_user_user_information_path(current_user) %>
+    <% end %>
   </div>
 </div>

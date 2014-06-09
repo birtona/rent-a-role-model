@@ -36,13 +36,15 @@
         </li>
       </ul>
     </div>
-    <% if current_user %>
-      <div>
-        <ul class="nav navbar-nav navbar-right">
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
           <li><%= link_to 'Ausloggen', logout_path %></li>
-        </ul>
-      </div>
-    <% end %>
+        <% else %>
+          <li><%=  link_to "Mit XING einloggen", sign_up_path, class: 'btn btn-primary btn-block'  %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </header>
 
