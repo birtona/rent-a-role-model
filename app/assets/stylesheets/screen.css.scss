@@ -1,8 +1,17 @@
+$text-color : #406;
+$role-model-color: #6A287E;
+
 
 @font-face {
-  font-family: 'LobsterTwo-Bold';
-  src: url('LobsterTwo-Bold.eot');
-  src: local('LobsterTwo-Bold'), url('LobsterTwo-Bold.woff') format('woff'), url('LobsterTwo-Bold.ttf') format('truetype');
+  font-family: 'JandaCapslock';
+  src: url('./JandaCapslock.eot');
+  src: local('JandaCapslock'), url('./JandaCapslock.woff') format('woff'), url('./JandaCapslock.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'angelina';
+  src: url('./angelina.eot');
+  src: local('angelina'), url('./angelina.woff') format('woff'), url('./angelina.ttf') format('truetype');
 }
 /* Font downloaded from FontsForWeb.com */
 
@@ -10,27 +19,41 @@ body {
   font: 100% arial, verdana, sans-serif;
   background: none #fff;
   margin: 0;
-  color: #fff;
+  color: $text-color;
 }
 
-a,
+a {
+  text-decoration: none;
+  color: $text-color;
+}
+
 a:hover,
-a:active {color: #fff;}
+a:active {
+  text-decoration: underline;
+  color: $text-color;
+}
+
 
 #cover {
-  position: absolute;
+  position: fixed;
     overflow: hidden;
   z-index: -1;
   top: 0;
   height: 100%;
   width: 100%;
-    opacity: .35;
-    height: 100%;
-    width: 100%;
+  opacity: .35;
+  height: 100%;
+  width: 100%;
+}
+#stage{
+  background: none rgba(134,82,149,.2);
+  width: 100%;
+  height: 100%;
 }
 
+
 .bannerImg {
-  position: relative;
+  position: fixed;
   width: 100%;
   height: auto;
   background: url(/classroom2.jpg) 100% -8% no-repeat;
@@ -40,6 +63,7 @@ a:active {color: #fff;}
   right: 0;
   bottom: 0;
   background-size: auto 39%;
+  z-index: -1;
 }
 
 #wrapper {
@@ -49,7 +73,6 @@ a:active {color: #fff;}
 }
 
 .row{
-  background: none rgba(134,82,149,1);
   display: inline-block;
   clear: both;
 }
@@ -64,19 +87,28 @@ a:active {color: #fff;}
 }
 
 #logo{
-  font: 600 3em/1em 'LobsterTwo-Bold', cursive;
+  font: 600 2.1em/1em 'JandaCapslock', cursive;
   text-align: center;
   margin: 0;
-  color: #6A287E;
+  color: $role-model-color;
   text-shadow: 3px 3px 3px #fff;
   margin: 0 0 .02em 0;
 }
 
+#message,
+#logout{
+  text-align: right;
+}
+
+#content{
+  margin-bottom: 3em;
+}
+
 h1 {
-  font: 400 1.2em/1em 'LobsterTwo-Bold', cursive;
+  font: 400 .9em/1em 'JandaCapslock', cursive;
   text-align: center;
   margin: 0 0 .2em 0;
-  color: #6A287E;
+  color: $role-model-color;
 }
 
 select,
@@ -99,12 +131,16 @@ select {background: none #ddd;}
   background: none #fff;
 }
 
-.submit {background: none #406;}
+.submit {background: none $text-color;}
 .submit:hover{background: none #53007d}
 
 /* navigation */
 nav {
   width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: none rgba(134,82,149,.5);
 }
 nav ul {
   clear: both;
@@ -121,13 +157,15 @@ nav li {
   margin: 0 .2em;
   padding: .4em;
 }
-nav a,
-nav a:hover,
-nav a:active {
-  color: #fff;
+nav a {
   text-decoration: none;
   color:#fff;
 }
+
+nav a {color:$text-color;}
+nav a:hover,
+nav a:active {color: #fff;}
+
 
 nav li:hover{background: none #53007d;}
 
@@ -139,14 +177,19 @@ nav li:hover{background: none #53007d;}
   width: 50%;
 }
 
-
 /* form */
 textarea {
   display:block;
   width: 100%;
   height: 3em;
+  margin-bottom: 1em;
 }
 
+label {
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* ++++++++++++++++++++++++++++++++++++++++++++++++ */
@@ -161,21 +204,22 @@ textarea {
     width: 80%;
     padding-top: 2em; 
   }
+  #stage {
+    width: 85%;
+    margin: 0 auto;
+  }
+
   .row {
-    -webkit-border-radius: 0.5em;
-    -moz-border-radius: 0.5em;
-    border-radius: 0.5em;
+    -webkit-border-radius: 0.5em 0.5em 0 0;
+    -moz-border-radius: 0.5em 0.5em 0 0;
+    border-radius: 0.5em 0.5em 0 0;
   }
-
-  nav.row {
-    -webkit-border-radius: 0.3em;
-    -moz-border-radius: 0.3em;
-    border-radius: 0.3em;
-  }
-
   
-  #logo {font-size: 3.5em;}
-  h1 {margin: 0 0 .5em 0;}
+  #logo {font-size: 3.2em;}
+  h1 {
+    font-size: 1.3em;
+    margin: 0 0 .5em 0;
+  }
 }
 
 @media screen and (min-width: 970px) {
@@ -184,14 +228,15 @@ textarea {
     width: 65%;
   }
   .row {
-    -webkit-border-radius: 1em;
-    -moz-border-radius: 1em;
-    border-radius: 1em;
+    -webkit-border-radius: 1em 1em 0 0;
+    -moz-border-radius: 1em 1em 0 0;
+    border-radius: 1em 1em 0 0;
   }
   .row > div {width: 50%;}
 
-  .row {background: none rgba(106,40,126,.8); }
-
-  #logo {font-size: 4em;}
-  h1 {margin: 0 0 1em 0;}
+  #logo {font-size: 3.6em;}
+  h1 {
+    font-size: 1.5em;
+    margin: 0 0 1em 0;
+  }
 }

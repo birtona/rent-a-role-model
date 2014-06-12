@@ -2,12 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.email-field,
 .name-field {
-	width: 200px;
-   height: 20px;
-}
-
-.email-field {
 	width: 200px;
    height: 20px;
 }
@@ -17,8 +13,8 @@
    height: 300px;
 }
 
-form {
-  color: #000000;
+textarea {
+	height: 5em;
 }
 
 
