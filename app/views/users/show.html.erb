@@ -1,30 +1,26 @@
-<div class="container col-md-12">
-  <h1 class="text-center">
-    <%= @user.name  %>
-        </h1>
-  <div class="row">
-    <div class="col-md-3 col-sm-3 col-xs-12">
-      <%= image_tag(@user.image_url, class: "profile") %>
-    </div>
-    <div class="col-md-6 col-sm-6 col-xs-12">
-      <p class="profile" > <%= @user.job %>
-      <br>
+<h1 class="text-center"><%= @user.name  %></h1>
+<div class="row">
+  <div>
+    <%= image_tag(@user.image_url, class: "profile") %>
+  </div>
+  <div>
+    <p class="profile" > <%= @user.job %>
+      <br />
         <%= @user.city %> </p>
-      <br>
-      <div>
-        <%= render 'user_information'if @info %>
-      </div>
+      <br />
+      
+      <div><%= render 'user_information'if @info %></div>
+
       <%=link_to @user.xing_profile, class: "btn btn-default btn-lg white_button" do %>
         <%= image_tag('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQD1lCGSiROaXVJyx1h1CfkuZsiO80_RMyEo1GXCulFXQmUFDGi', width: 20) %> Xing-Profil ansehen
       <% end %>
-      <br>
-      <br>
+    <br />
+    <br />
      <%= link_to new_user_contact_form_path(user_id: @user.id), class: "btn btn-default btn-lg white_button contact-button" do %>
         <span class="sglyphicon glyphicon-envelope"> Per E-Mail anschreiben</span>
       <% end %>
-
     </div>
-    <div class="col-md-3 col-sm-0 col-xs-0">
+    <div>
     </div>
     <% if current_user && current_user.profile_owner?(@user) %>
       <%= link_to 'Mein Profile bearbeiten', edit_admin_user_user_information_path(current_user) %>

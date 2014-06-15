@@ -8,6 +8,7 @@
 /.bundle
 
 /.idea/*
+.idea/
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -18,4 +19,7 @@
 /tmp
 .rvmrc
 /coverage
+
+# simplecov output
+coverage/
 

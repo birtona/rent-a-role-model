@@ -1,0 +1,242 @@
+$text-color : #406;
+$role-model-color: #6A287E;
+
+
+@font-face {
+  font-family: 'JandaCapslock';
+  src: url('./JandaCapslock.eot');
+  src: local('JandaCapslock'), url('./JandaCapslock.woff') format('woff'), url('./JandaCapslock.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'angelina';
+  src: url('./angelina.eot');
+  src: local('angelina'), url('./angelina.woff') format('woff'), url('./angelina.ttf') format('truetype');
+}
+/* Font downloaded from FontsForWeb.com */
+
+body {
+  font: 100% arial, verdana, sans-serif;
+  background: none #fff;
+  margin: 0;
+  color: $text-color;
+}
+
+a {
+  text-decoration: none;
+  color: $text-color;
+}
+
+a:hover,
+a:active {
+  text-decoration: underline;
+  color: $text-color;
+}
+
+
+#cover {
+  position: fixed;
+    overflow: hidden;
+  z-index: -1;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: .35;
+  height: 100%;
+  width: 100%;
+}
+#stage{
+  background: none rgba(134,82,149,.2);
+  width: 100%;
+  height: 100%;
+}
+
+
+.bannerImg {
+  position: fixed;
+  width: 100%;
+  height: auto;
+  background: url(/classroom2.jpg) 100% -8% no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: auto 39%;
+  z-index: -1;
+}
+
+#wrapper {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 1em;
+}
+
+.row{
+  display: inline-block;
+  clear: both;
+}
+
+.row > div {
+  float: left;
+  padding: 1em;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#logo{
+  font: 600 2.1em/1em 'JandaCapslock', cursive;
+  text-align: center;
+  margin: 0;
+  color: $role-model-color;
+  text-shadow: 3px 3px 3px #fff;
+  margin: 0 0 .02em 0;
+}
+
+#message,
+#logout{
+  text-align: right;
+}
+
+#content{
+  margin-bottom: 3em;
+}
+
+h1 {
+  font: 400 .9em/1em 'JandaCapslock', cursive;
+  text-align: center;
+  margin: 0 0 .2em 0;
+  color: $role-model-color;
+}
+
+select,
+.btn {
+  padding: .5em;
+  border: 1px solid #777;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+select {background: none #ddd;}
+
+.btn,
+.btn:hover,
+.btn:active {
+  color:#fff;
+  background: none #fff;
+}
+
+.submit {background: none $text-color;}
+.submit:hover{background: none #53007d}
+
+/* navigation */
+nav {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: none rgba(134,82,149,.5);
+}
+nav ul {
+  clear: both;
+  margin: 0 1em;
+  padding: 0;
+  width: 100%;
+  display: block;
+}
+
+nav li {
+  list-style: none;
+  display: inline-block;
+  float: left;
+  margin: 0 .2em;
+  padding: .4em;
+}
+nav a {
+  text-decoration: none;
+  color:#fff;
+}
+
+nav a {color:$text-color;}
+nav a:hover,
+nav a:active {color: #fff;}
+
+
+nav li:hover{background: none #53007d;}
+
+/* selection 
+  @Todo: change the class selection to something better
+*/
+.selection {width: 100%;}
+.selection .selectionBtn{
+  width: 50%;
+}
+
+/* form */
+textarea {
+  display:block;
+  width: 100%;
+  height: 3em;
+  margin-bottom: 1em;
+}
+
+label {
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++ */
+@media screen and (min-width: 600px) {
+  
+  .bannerImg{
+    background-position: 100% 100%; 
+    background-size: auto 39%;
+  }
+
+  #wrapper{
+    width: 80%;
+    padding-top: 2em; 
+  }
+  #stage {
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  .row {
+    -webkit-border-radius: 0.5em 0.5em 0 0;
+    -moz-border-radius: 0.5em 0.5em 0 0;
+    border-radius: 0.5em 0.5em 0 0;
+  }
+  
+  #logo {font-size: 3.2em;}
+  h1 {
+    font-size: 1.3em;
+    margin: 0 0 .5em 0;
+  }
+}
+
+@media screen and (min-width: 970px) {
+  .bannerImg{background-size: auto 60%;}
+  #wrapper{
+    width: 65%;
+  }
+  .row {
+    -webkit-border-radius: 1em 1em 0 0;
+    -moz-border-radius: 1em 1em 0 0;
+    border-radius: 1em 1em 0 0;
+  }
+  .row > div {width: 50%;}
+
+  #logo {font-size: 3.6em;}
+  h1 {
+    font-size: 1.5em;
+    margin: 0 0 1em 0;
+  }
+}

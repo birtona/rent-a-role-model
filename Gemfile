@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '1.9.3'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 gem 'mail_form'
@@ -20,10 +22,11 @@ group :production do
 end
 group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 group :coverage do
-    gem 'simplecov', :require => false
-  end
+  gem 'simplecov', :require => false
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -52,7 +55,7 @@ group :doc do
 end
 
 gem 'xing_api'
-gem 'bootstrap-sass-rails'
+#gem 'bootstrap-sass-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

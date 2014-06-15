@@ -3,72 +3,46 @@
 <head>
   <title>Rent a Role Model</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'fav.ico' %>
 </head>
+
 <body>
-
-<header class="navbar navbar-inverse navbar-fixed-top" id="blue-nav" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse-blue">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to "Rent a Role Model", root_path, class: "navbar-brand" %>
+    <div id="cover">
+        <div class="bannerImg"></div>
+        <div id="stage"></div>
     </div>
 
-    <div>
-      <ul class="nav navbar-nav navbar-collapse navbar-collapse-blue">
-        <li>
-          <%= link_to "Ich bin ein Role Model", home_role_model_path %>
-        </li>
-
-        <li>
-          <%= link_to "Berlin", users_path(city: "Berlin") %>
-        </li>
-
-        <li>
-          <%= link_to "Hamburg", users_path(city: "Hamburg") %>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <ul class="nav navbar-nav navbar-right">
-        <% if current_user %>
-          <li><%= link_to 'Ausloggen', logout_path %></li>
-        <% else %>
-          <li><%=  link_to "Mit XING einloggen", sign_up_path, class: 'btn btn-primary btn-block'  %></li>
+    <div id="wrapper">
+      <div id="message">
+        <% flash.each do |key, value| %>
+          <div class="flash <%= key %>"><%= value %></div>
         <% end %>
-      </ul>
-    </div>
-  </div>
-</header>
+      </div>
 
-<div id="content-body">
-  <%= yield %>
-</div>
-<div style="color: #FF0000">
-<% flash.each do |key, value| %>
-    <div class="flash <%= key %>"><%= value %></div>
-<% end %>
-</div>
-<div class="clearfix">
-  <footer class="navbar navbar-inverse navbar-fixed-bottom" id="foot-nav">
-    <div class="container">
+      <% if current_user %>
+        <div id="logout"><%= link_to 'Ausloggen', logout_path %>
+        </div>
+      <% end %>
+      
+      <div id="logo">Rent a Role Model</div>
+      <div id="content">
+        <%= yield %>
+      </div>  
       <nav>
-        <ul class="nav navbar-nav">
-          <li>
-          <%= link_to "Über uns", about_path %>
-          </li>
-        </ul>
+          <ul>
+            <li><%= link_to "Home", root_url %></li>
+            <li><%= link_to "Melde dich jetzt als Role Model an", home_role_model_path %></li>
+            <li><%= link_to "Über uns", about_path %></li>
+            <% if current_user %>
+              <li><%= link_to 'Ausloggen', logout_path %></li>
+            <% else %>
+              <li><%=  link_to "Mit XING einloggen", sign_up_path, class: 'btn btn-primary btn-block'  %></li>
+            <% end %>
+          </ul>
       </nav>
     </div>
-  </footer>
-</div>
 
-</body>
+
+  </body>
 </html>

@@ -1,27 +1,27 @@
-<div class="container col-md-12 col-sm-12 col-xs-12">
-  <h1 class="text-center home" >Zusätzliche Angaben zu Dir, die in deinem Profil erscheinen sollen</h1>
+<h1>Zusätzliche Angaben zu Dir, die in deinem Profil erscheinen sollen</h1>
 
-  <div class="row">
-
-    <%= form_for [@user, @info], url: admin_user_user_information_path(@user) do |f| %>
+<%= form_for [@user, @info], url: admin_user_user_information_path(@user) do |f| %>
+  <div class="row selection">
       <div>
-        <%= f.label :why, "Warum möchtest Du ein Role Model sein?" %>
-        <%= f.text_area :why %>
+        <div>
+          <%= f.label :why, "Warum möchtest du ein Role Model sein?" %>
+          <%= f.text_area :why %>
+        </div>
+        <div>
+          <%= f.label :past, "Auf welchen Schul-Events warst du bereits als Role Model?" %>
+          <%= f.text_area :past %>
+        </div>
       </div>
       <div>
-        <%= f.label :past, "Hast du bereits Schul-Events als Role Model gesprochen und wenn ja wo?" %>
-        <%= f.text_area :past %>
+        <div>
+          <%= f.label :projects, "An welchen Projekten (Frauen in IT) warst oder bist du beteiligt?" %>
+          <%= f.text_area :projects %>
+        </div>
+        <div>
+          <%= f.label :places, "An welchen Orten stehst du als Role Model zur Verfügung?" %>
+          <%= f.text_area :places %>
+        </div>
+        <div><%= f.submit 'Speichern', class:'btn submit' %></div>
       </div>
-      <div>
-        <%= f.label :projects, "Bist oder warst du an Projekten beteiligt, die sich mit Frauen in IT befassen?" %>
-        <%= f.text_area :projects %>
-      </div>
-      <div>
-        <%= f.label :places, "Zusätzlicher Ort zu deinem Wohnort, an dem du sprechen würdest?" %>
-        <%= f.text_area :places %>
-      </div>
-      <div><%= f.submit %></div>
-    <% end %>
-
   </div>
-</div>
+<% end %>
