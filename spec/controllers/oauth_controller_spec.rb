@@ -25,7 +25,7 @@ describe OauthController do
       expect(get(:sign_up)).to redirect_to(request_token[:authorize_url])
     end
 
-    it 'stores reuqest token and secret in the session' do
+    it 'stores request token and secret in the session' do
       XingApi::Client.any_instance.stub(:get_request_token).and_return(request_token)
 
       get :sign_up
@@ -44,8 +44,8 @@ describe OauthController do
     context 'when a new user is created' do
       let(:user) { double(save: true) }
 
-      it 'redirects to thanks page' do
-        expect(get(:callback)).to redirect_to(home_thanks_path)
+      it 'redirects to admin/user_information new page' do
+        expect(get(:callback)).to redirect_to(new_admin_user_user_information_path(user.id))
       end
     end
 
@@ -58,10 +58,10 @@ describe OauthController do
         get(:callback)
       end
 
-      it 'redirects to already page' do
+      it 'redirects to admin/user_information edit page' do
         User.stub(:update_existing_user)
 
-        expect(get(:callback)).to redirect_to(home_already_path)
+        expect(get(:callback)).to redirect_to(edit_admin_user_user_information_path(user.id))
       end
     end
   end
