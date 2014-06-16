@@ -16,23 +16,20 @@ class OauthController < ApplicationController
       request_token_secret: session[:request_token_secret]
     )
 
-    new_user = User.build_with_xing(access_token)
+    user = User.update_or_create(access_token)
 
-    if new_user.save
-      #redirect_to home_thanks_path
+    if user.nil?
+      redirect_to home_index_path
     else
-      new_user = User.update_existing_user(new_user)
-      #redirect_to home_already_path
-    end
-    
-    session[:user_id] = new_user.id
-    if new_user.user_information
-      redirect_to edit_admin_user_user_information_path(new_user.id)
-    else
-      redirect_to new_admin_user_user_information_path(new_user.id)
+      session[:user_id] = user.id
+      if user.user_information
+        redirect_to edit_admin_user_user_information_path(user.id)
+      else
+        redirect_to new_admin_user_user_information_path(user.id)
+      end
     end
   end
-  
+
   private
 
   def set_client
