@@ -38,30 +38,36 @@ describe OauthController do
   describe '#callback' do
     before do
       XingApi::Client.any_instance.stub(:get_access_token)
-      User.stub(:build_with_xing).and_return(user)
+      User.should_receive(:update_or_create).and_return(user)
     end
 
-    context 'when a new user is created' do
-      let(:user) { double(save: true) }
+    context 'without user' do
+      let(:user) { nil }
+
+      it 'redirects to home_index' do
+        expect(get(:callback)).to redirect_to(home_index_path)
+      end
+    end
+
+    context 'user has no information' do
+      let(:user) { create(:user, user_information: nil) }
 
       it 'redirects to admin/user_information new page' do
         expect(get(:callback)).to redirect_to(new_admin_user_user_information_path(user.id))
       end
     end
 
-    context 'when a user already exists' do
-      let(:user) { double(save: false) }
-
-      it 'updates the user profile' do
-        User.should_receive(:update_existing_user).with(user)
-
-        get(:callback)
-      end
+    context 'user with information' do
+      let(:user) { create(:user) }
 
       it 'redirects to admin/user_information edit page' do
-        User.stub(:update_existing_user)
-
         expect(get(:callback)).to redirect_to(edit_admin_user_user_information_path(user.id))
+      end
+
+      it 'sets session user id' do
+        get(:callback)
+
+        expect(session[:user_id]).to eq(user.id)
       end
     end
   end

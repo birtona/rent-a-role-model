@@ -19,7 +19,7 @@ class OauthController < ApplicationController
     user = User.update_or_create(access_token)
 
     if user.nil?
-      redirect_to home_thanks_path
+      redirect_to home_index_path
     else
       session[:user_id] = user.id
       if user.user_information
