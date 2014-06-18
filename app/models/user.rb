@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include XingProfile
   has_one :user_information
   validates_uniqueness_of :email
 
@@ -7,22 +8,10 @@ class User < ActiveRecord::Base
     return unless profile.present?
 
     (User.find_by(email: profile[:active_email]) || User.new).tap do |user|
-      user.access_token = token[:access_token]
-      user.access_token_secret = token[:access_token_secret]
+      user.token = token
       user.update_profile(profile)
       user.save
     end
-  end
-
-  def self.load_xing_profile(token)
-    client = XingApi::Client.new(
-      oauth_token: token[:access_token],
-      oauth_token_secret: token[:access_token_secret]
-    )
-
-    XingApi::User.me(client: client)[:users].first
-  rescue XingApi::Error
-    {}
   end
 
   def profile_owner?(user)
@@ -37,6 +26,19 @@ class User < ActiveRecord::Base
     self.image_url      = profile[:photo_urls].try(:[], :large)
     self.xing_profile   = profile[:permalink]
     self.profile_loaded = true
+    self.save
+  end
+
+  def token
+    {
+      access_token: self.access_token,
+      access_token_secret: self.access_token_secret
+    }
+  end
+
+  def token=(token)
+    self.access_token = token[:access_token]
+    self.access_token_secret = token[:access_token_secret]
   end
 
 end
