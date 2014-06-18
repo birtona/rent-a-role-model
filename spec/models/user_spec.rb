@@ -61,8 +61,7 @@ describe User do
         }
         user = User.update_or_create(new_token)
 
-        expect(user.access_token).to eq(new_token[:access_token])
-        expect(user.access_token_secret).to eq(new_token[:access_token_secret])
+        expect(user.token).to eq(new_token)
       end
 
       it 'updates the profile data' do
@@ -74,6 +73,11 @@ describe User do
 
   describe '#update_profile' do
     subject { build(:user) }
+
+    it 'saves the user' do
+      subject.update_profile({})
+      expect(subject).to be_persisted
+    end
 
     it 'sets profile_loaded to true' do
       subject.update_profile(display_name: 'John Doe')
@@ -166,6 +170,30 @@ describe User do
     it 'is false for another id' do
       another_user = double(id: user.id + 1)
       expect(user.profile_owner?(another_user)).to be_false
+    end
+  end
+
+  describe '#token' do
+    let(:user) { create(:user) }
+
+    it 'returns access token and secret' do
+      expected = {
+        access_token: user.access_token,
+        access_token_secret: user.access_token_secret,
+      }
+
+      expect(user.token).to eq(expected)
+    end
+
+    it 'sets access token and secret' do
+      new_token = {
+        access_token: 'new_token',
+        access_token_secret: 'new_token_secret',
+      }
+
+      user.token = new_token
+
+      expect(user.token).to eq(new_token)
     end
   end
 end
