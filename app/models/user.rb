@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   end
 
   def update_profile(profile)
+    self.xing_id        = profile[:id]
     self.name           = profile[:display_name]
     self.email          = profile[:active_email]
     self.city           = profile[:private_address].try(:[], :city) || profile[:business_address].try(:[], :city)
