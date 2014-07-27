@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140607122611) do
+ActiveRecord::Schema.define(version: 20140619184535) do
 
   create_table "user_informations", force: true do |t|
     t.integer  "user_id"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140607122611) do
     t.string   "access_token"
     t.string   "access_token_secret"
     t.boolean  "profile_loaded"
+    t.string   "xing_id"
   end
 
 end

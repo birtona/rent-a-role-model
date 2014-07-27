@@ -1,0 +1,6 @@
+<% if info.send(field).present? %>
+  <div>
+    <strong><%= t("users.user_information.#{field}") %></strong>
+    <%= info.send(field) %>
+  </div>
+<% end %>

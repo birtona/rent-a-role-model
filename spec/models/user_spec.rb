@@ -84,6 +84,11 @@ describe User do
       expect(subject.profile_loaded).to be_true
     end
 
+    it 'sets xing_id' do
+      subject.update_profile(id: '1_abcdef')
+      expect(subject.xing_id).to eq('1_abcdef')
+    end
+
     it 'sets name' do
       subject.update_profile(display_name: 'John Doe')
       expect(subject.name).to eq('John Doe')
