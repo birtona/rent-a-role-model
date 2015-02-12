@@ -18,18 +18,18 @@ class UsersController < ApplicationController
     @city = params['city']
 
     if @city.present?
-      @users = User.order('name ASC').all(:conditions => { :city => @city })
+      @users = User.active.order('name ASC').all(:conditions => { :city => @city })
     else
-      @users = User.order('name ASC').all
+      @users = User.active.order('name ASC').all
     end
   end
 
   def show
-    @user = User.find(params[:id])
-    @info = @user.user_information    
+    @user = User.active.find(params[:id])
+    @info = @user.user_information
   end
 
   def contact_forms
-    @user = User.find(params[:id])
+    @user = User.active.find(params[:id])
   end
 end

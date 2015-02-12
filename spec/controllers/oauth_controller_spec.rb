@@ -1,6 +1,4 @@
-require 'spec_helper'
-
-describe OauthController do
+describe OauthController, type: :controller do
   describe '#sign_up' do
     let(:request_token) do
       {
@@ -11,8 +9,8 @@ describe OauthController do
     end
 
     it 'passes correct callback url to get a request token' do
-      XingApi::Client.any_instance.
-        should_receive(:get_request_token).
+      expect_any_instance_of(XingApi::Client).
+        to receive(:get_request_token).
         with(callback_url).
         and_return(request_token)
 
@@ -20,13 +18,13 @@ describe OauthController do
     end
 
     it 'redirects to request token auhthorize url' do
-      XingApi::Client.any_instance.stub(:get_request_token).and_return(request_token)
+      allow_any_instance_of(XingApi::Client).to receive(:get_request_token).and_return(request_token)
 
       expect(get(:sign_up)).to redirect_to(request_token[:authorize_url])
     end
 
     it 'stores request token and secret in the session' do
-      XingApi::Client.any_instance.stub(:get_request_token).and_return(request_token)
+      allow_any_instance_of(XingApi::Client).to receive(:get_request_token).and_return(request_token)
 
       get :sign_up
 
@@ -37,8 +35,8 @@ describe OauthController do
 
   describe '#callback' do
     before do
-      XingApi::Client.any_instance.stub(:get_access_token)
-      User.should_receive(:update_or_create).and_return(user)
+      allow_any_instance_of(XingApi::Client).to receive(:get_access_token)
+      expect(User).to receive(:update_or_create).and_return(user)
     end
 
     context 'without user' do
