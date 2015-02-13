@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   include XingProfile
   has_one :user_information
   validates_uniqueness_of :email
+  scope :active, -> { where(profile_loaded: true).where.not(access_token: nil) }
 
   def self.update_or_create(token)
     profile = load_xing_profile(token)

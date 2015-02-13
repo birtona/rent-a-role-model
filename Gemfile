@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
+ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails'
 gem 'mail_form'
 
 # Use sqlite3 as the database for Active Record
@@ -14,7 +14,7 @@ group :development do
   #MailCatcher runs a super simple SMTP server which catches any message sent to it to display in a web interface.
   #check out http://127.0.0.1:1080 to see the mail.
   gem 'mailcatcher'
-  gem 'debugger'
+  gem 'pry'
 end
 group :production do
   gem 'pg'

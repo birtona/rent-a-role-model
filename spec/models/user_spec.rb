@@ -1,6 +1,17 @@
-require 'spec_helper'
-
 describe User do
+  describe '.active' do
+    let!(:active_user) { create(:user) }
+    let!(:user_without_token) { create(:user, profile_loaded: false) }
+    let!(:user_with_invalid_token) { create(:user, access_token: nil) }
+
+    it 'returns active users' do
+      expected = [active_user]
+      actual = User.active.to_a
+
+      expect(actual).to eql(expected)
+    end
+  end
+
   describe '.update_or_create' do
     let(:token) do
       {
@@ -10,19 +21,19 @@ describe User do
     end
 
     it 'uses passed token to load the XING profile' do
-      User.should_receive(:load_xing_profile).with(token)
+      expect(User).to receive(:load_xing_profile).with(token)
       User.update_or_create(token)
     end
 
     it 'returns nil if profile is not loaded' do
-      User.stub(:load_xing_profile).and_return({})
+      allow(User).to receive(:load_xing_profile).and_return({})
       expect(User.update_or_create(token)).to be_nil
     end
 
     context 'when user is created' do
       let(:user_profile) { { active_email: 'does@not.exist' } }
       before do
-        User.stub(:load_xing_profile).and_return(user_profile)
+        allow(User).to receive(:load_xing_profile).and_return(user_profile)
       end
 
       it 'returns a new user' do
@@ -37,7 +48,7 @@ describe User do
       end
 
       it 'sets the profile data' do
-        User.any_instance.should_receive(:update_profile).with(user_profile)
+        expect_any_instance_of(User).to receive(:update_profile).with(user_profile)
         User.update_or_create(token)
       end
     end
@@ -46,7 +57,7 @@ describe User do
       let(:existing_user) { create(:user) }
       let(:user_profile) { { active_email: existing_user.email } }
       before do
-        User.stub(:load_xing_profile).and_return(user_profile)
+        allow(User).to receive(:load_xing_profile).and_return(user_profile)
       end
 
       it 'returns the existing user' do
@@ -65,7 +76,7 @@ describe User do
       end
 
       it 'updates the profile data' do
-        User.any_instance.should_receive(:update_profile).with(user_profile)
+        expect_any_instance_of(User).to receive(:update_profile).with(user_profile)
         User.update_or_create(token)
       end
     end
@@ -81,7 +92,7 @@ describe User do
 
     it 'sets profile_loaded to true' do
       subject.update_profile(display_name: 'John Doe')
-      expect(subject.profile_loaded).to be_true
+      expect(subject.profile_loaded).to eql(true)
     end
 
     it 'sets xing_id' do
@@ -150,7 +161,7 @@ describe User do
     let(:xing_response) { { users: [user_profile] } }
 
     it 'returns xing user profile' do
-      XingApi::User.stub(:me).and_return(xing_response)
+      allow(XingApi::User).to receive(:me).and_return(xing_response)
 
       actual = User.load_xing_profile(token)
 
@@ -158,7 +169,7 @@ describe User do
     end
 
     it 'returns empty profile if loading fails' do
-      XingApi::User.stub(:me).and_raise(XingApi::Error.new(nil))
+      allow(XingApi::User).to receive(:me).and_raise(XingApi::Error.new(nil))
 
       actual = User.load_xing_profile(token)
 
@@ -169,12 +180,12 @@ describe User do
   describe '#profile_owner' do
     let(:user) { create(:user) }
     it 'is true for user id' do
-      expect(user.profile_owner?(user)).to be_true
+      expect(user.profile_owner?(user)).to eql(true)
     end
 
     it 'is false for another id' do
       another_user = double(id: user.id + 1)
-      expect(user.profile_owner?(another_user)).to be_false
+      expect(user.profile_owner?(another_user)).to eql(false)
     end
   end
 
