@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     @city = params['city']
 
     if @city.present?
-      @users = User.active.order('name ASC').all(:conditions => { :city => @city })
+      @users = User.active.where(:city => @city ).order('name ASC')
     else
       @users = User.active.order('name ASC').all
     end
